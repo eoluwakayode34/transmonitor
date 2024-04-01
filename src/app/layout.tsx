@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { segoeui } from "../../public/assets/fonts";
 import "./globals.css";
-
-const inter = Inter({ subsets: ["latin"] });
+import Header from "@/components/layout/header/header";
+import Sidebar from "@/components/layout/sidebar/sidebar";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -16,7 +16,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={segoeui.className}>
+        <div className="w-full h-screen overflow-hidden bg-[#F7F8FA]">
+          <Header />
+          <div className="flex h-full max-h-full  mt-[60px]">
+            <Sidebar />
+            <div className="p-8 flex-1 h-full overflow-y-auto">{children}</div>
+          </div>
+        </div>
+      </body>
     </html>
   );
 }
