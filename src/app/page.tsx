@@ -56,7 +56,7 @@ export default function Home() {
     );
   };
   return (
-    <div className="w-full  ">
+    <div className="w-full ">
       <TransactionCardList />
 
       <div className=" mt-[26px] grid gap-[2px] h-[329px] grid-cols-4">
@@ -81,7 +81,7 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="mt-10 w-full  flex flex-col gap-6">
+      <div className="mt-20 w-full  flex flex-col gap-6">
         <h1>Payments</h1>
 
         <AppTable columns={PAYMENT_COLUMN} data={paymentsData(100)} />

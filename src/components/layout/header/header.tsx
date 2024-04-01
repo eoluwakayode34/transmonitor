@@ -1,16 +1,24 @@
 import Image from "next/image";
 import React from "react";
 import { GrNotification } from "react-icons/gr";
+import { AiOutlineSearch } from "react-icons/ai";
 
 export default function Header() {
   return (
     <div className="h-[60px] text-[#647787] w-full justify-between px-10 shadow-md flex  items-center shadow-slate-100 bg-white z-10 absolute top-0 left-0 right-0">
-      <Image
-        src={"/appLogo.svg"}
-        width={153}
-        height={29}
-        alt="transmonitor logo"
-      />
+      <div className="flex items-center gap-10">
+        <Image
+          src={"/appLogo.svg"}
+          width={153}
+          height={29}
+          alt="transmonitor logo"
+        />
+
+        <div className="flex gap-2  ">
+          <AiOutlineSearch className="text-[#0E1D25]" />
+          <div className="text-xs">Search...</div>
+        </div>
+      </div>
 
       <div className="flex items-center gap-14">
         <div className="flex gap-8">
