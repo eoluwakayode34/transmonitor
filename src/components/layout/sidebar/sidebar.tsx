@@ -18,7 +18,7 @@ export default function Sidebar() {
             {item?.menuList?.map((item, index) => (
               <div
                 key={index}
-                className="flex pl-[27px] gap-4 py-3 hover:border-l hover:border-[#1875F0] hover:bg-[#E8F1FD]"
+                className="flex pl-[27px] gap-4 py-3 hover:border-l-4 hover:border-[#1875F0] hover:bg-[#E8F1FD]"
               >
                 <Image
                   src={item?.image?.url}
