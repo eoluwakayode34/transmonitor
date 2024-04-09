@@ -11,7 +11,6 @@ export default function Home() {
 
       <div className=" mt-10 sm:mt-12 md:mt-16  w-full  flex flex-col gap-6">
         <h1>Payments</h1>
-
         <AppTable />
       </div>
     </div>

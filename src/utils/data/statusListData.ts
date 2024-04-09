@@ -1,8 +1,8 @@
-import { PaymentStatus } from "@/components/table/makeData";
+import { IPaymentStatus } from "@/components/table/makeData";
 
-type StatusListType = {
+interface StatusListType {
     id: number;
-    name: PaymentStatus | "All";
+    name: IPaymentStatus | "All";
   };
   
   export const statusList: StatusListType[] = [

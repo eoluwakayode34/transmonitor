@@ -1,13 +1,13 @@
 "use client"
 import { faker } from '@faker-js/faker';
-export type PaymentStatus =  'reconciled' | 'un-renconciled' | 'settled' | 'unsettled';
+export type IPaymentStatus =  'reconciled' | 'un-renconciled' | 'settled' | 'unsettled';
 
-export type PaymentType = {
+export interface IPaymentType  {
 	type: string;
 	price: string;
 	transactionNo: string;
 	time: string;
-	status: PaymentStatus;
+	status: IPaymentStatus;
 };
 
 
@@ -62,20 +62,20 @@ function generateAppleDevice() {
 
 
 
-const newPayment = (): PaymentType => {
+const newPayment = (): IPaymentType => {
 	return {
 	price: faker.finance.amount({min: 200, max: 5000}),
     time: '12:20',
     type:  generateAppleDevice().model,
-    transactionNo: '#' + faker.datatype.number({min: 0, max:100}).toPrecision(),
+    transactionNo: '#' + faker.number.int({min: 0, max:100}).toPrecision(),
 		status: faker.helpers.arrayElement(['reconciled' , 'un-renconciled' , 'settled' , 'unsettled']),
 	};
 };
 
 export function paymentsData(...lens: number[]) {
-	const makeDataLevel = (depth = 0): PaymentType[] => {
+	const makeDataLevel = (depth = 0): IPaymentType[] => {
 		const len = lens[depth]!;
-		return range(len).map((d): PaymentType => {
+		return range(len).map((d): IPaymentType => {
 			return {
 				...newPayment(),
 			};

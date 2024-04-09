@@ -1,9 +1,9 @@
 import CardChart from "../charts/smallChart";
 
-type CardChartProps = {
+interface CardChartProps {
   title: string;
   value: string;
-};
+}
 
 export default function TranactionCard({ title, value }: CardChartProps) {
   return (

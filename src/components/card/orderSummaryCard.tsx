@@ -1,7 +1,7 @@
-type OrderSummaryCardProps = {
+interface OrderSummaryCardProps {
   title: string;
   orderSummary: any[];
-};
+}
 
 export default function OrderSummaryCard({
   title,
