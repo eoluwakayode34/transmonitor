@@ -11,6 +11,7 @@ import {
   orderSummaryData,
   paymentSummmaryData,
 } from "@/utils/data/transactionSummaryList";
+import { formatDate } from "@/utils/formatDate";
 import { useMemo, useState } from "react";
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
 import { useDebounce } from "use-debounce";
@@ -41,7 +42,7 @@ export default function Home() {
       <div className=" mt-[26px] grid gap-[2px]  grid-cols-4">
         <div className="col-span-full xl:col-span-3 flex flex-col justify-between  bg-white">
           <div className="px-10 py-5 flex justify-between">
-            <h2 className="font-bold">Today: 5, Aug 2018</h2>
+            <h2 className="font-bold">Today: {formatDate()}</h2>
 
             <div className="flex gap-3">
               <Button type="left" />
