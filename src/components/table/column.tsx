@@ -1,10 +1,10 @@
 "use client";
 import { createColumnHelper } from "@tanstack/react-table";
 import { ReactNode } from "react";
-import { Payment } from "./makeData";
+import { PaymentType } from "./makeData";
 import { MdKeyboardArrowDown } from "react-icons/md";
 
-const paymentColumnHelper = createColumnHelper<Payment>();
+const paymentColumnHelper = createColumnHelper<PaymentType>();
 
 interface ITableHeaderData {
   children: ReactNode;

@@ -4,7 +4,7 @@ import { sideBarData } from "./sidebarData";
 
 export default function Sidebar() {
   return (
-    <div className="w-[260px] bg-white h-full py-10 ">
+    <div className="w-[260px] hidden lg:block bg-white h-full py-10 ">
       <div className="px-8">
         <button className="bg-[#27AE60] px-[27px] py-3 text-white rounded-[32px] ">
           GENERATE INVOICE
@@ -18,7 +18,8 @@ export default function Sidebar() {
             {item?.menuList?.map((item, index) => (
               <div
                 key={index}
-                className="flex pl-[27px] gap-4 py-3 hover:border-l-4 hover:border-[#1875F0] hover:bg-[#E8F1FD]"
+                className="flex pl-[27px] gap-4 py-3 hover:border-l-4
+                 hover:border-[#1875F0] hover:bg-[#E8F1FD]"
               >
                 <Image
                   src={item?.image?.url}

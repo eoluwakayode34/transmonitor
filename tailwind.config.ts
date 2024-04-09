@@ -22,6 +22,9 @@ brand: {
       sans: ['var(--font-segoe)', 'Helvetica', 'system-ui', 'sans-serif'],
     },
   },
-  plugins: [],
+  plugins: [
+    require('@headlessui/tailwindcss')({prefix: 'ui'})
+
+  ],
 };
 export default config;
