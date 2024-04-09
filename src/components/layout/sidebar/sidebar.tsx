@@ -1,10 +1,21 @@
+"use client";
+
 import Image from "next/image";
 import React from "react";
 import { sideBarData } from "./sidebarData";
+import { cn } from "@/utils/cn";
+import { useOpenSidebar } from "@/hooks/useToggleSidebar";
 
 export default function Sidebar() {
+  const toggleSidebar = useOpenSidebar((state) => state.toggleSidebar);
+
   return (
-    <div className="w-[260px] hidden lg:block bg-white h-full py-10 ">
+    <div
+      className={cn(
+        "w-[260px]   overflow-y-auto lg:block bg-white h-full py-10 pb-20 ",
+        toggleSidebar ? "left-0 top-[60px] z-10 absolute" : "hidden"
+      )}
+    >
       <div className="px-8">
         <button className="bg-[#27AE60] px-[27px] py-3 text-white rounded-[32px] ">
           GENERATE INVOICE

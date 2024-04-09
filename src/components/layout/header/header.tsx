@@ -1,19 +1,34 @@
+"use client";
+
 import Image from "next/image";
 import React from "react";
 import { GrNotification } from "react-icons/gr";
 import { AiOutlineSearch } from "react-icons/ai";
+import { HiOutlineMenuAlt2 } from "react-icons/hi";
+import { useOpenSidebar } from "@/hooks/useToggleSidebar";
 
 export default function Header() {
+  const setToggleSidebar = useOpenSidebar((state) => state.setToggleSidebar);
   return (
-    <div className="h-[60px] text-[#647787] w-full justify-between  px-5 sm:px-10 shadow-md flex  items-center shadow-slate-100 bg-white z-10 absolute top-0 left-0 right-0">
+    <div className="h-[60px]  text-[#647787] w-full justify-between  px-5 sm:px-10 shadow-md flex  items-center shadow-slate-100 bg-white z-10 absolute top-0 left-0 right-0">
       <div className="flex items-center gap-10">
-        <Image
-          src={"/appLogo.svg"}
-          width={153}
-          height={29}
-          className=" w-[100px] sm:w-[153px]"
-          alt="transmonitor logo"
-        />
+        <div className="flex items-center gap-2">
+          <button className="p-1">
+            <HiOutlineMenuAlt2
+              onClick={() => setToggleSidebar()}
+              size={16}
+              className="block lg:hidden text-gray-800"
+            />
+          </button>
+
+          <Image
+            src={"/appLogo.svg"}
+            width={153}
+            height={29}
+            className=" w-[100px] sm:w-[153px]"
+            alt="transmonitor logo"
+          />
+        </div>
 
         <div className="hidden md:flex gap-2 relative  ">
           <input
