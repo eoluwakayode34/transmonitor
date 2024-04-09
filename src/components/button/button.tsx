@@ -6,9 +6,9 @@ import {
   MdKeyboardArrowRight,
 } from "react-icons/md";
 
-export const Button = ({ type }: { type: "left" | "right" }) => {
+export const Button = ({ type, onClick }: { type: "left" | "right", onClick: () => void }) => {
   return (
-    <button className=" bg-gradient-to-t from-slate-200 to-white py-1 px-2 rounded-[4px] border-slate-200 border">
+    <button onClick={onClick} className=" bg-gradient-to-t from-slate-200 to-white py-1 px-2 rounded-[4px] border-slate-200 border">
       {type === "left" ? (
         <MdKeyboardArrowLeft className="text-slate-400 w-4 h-4 font-black " />
       ) : (
@@ -18,14 +18,14 @@ export const Button = ({ type }: { type: "left" | "right" }) => {
   );
 };
 
-interface SelectedCalenderRange {
+export interface ISelectedCalenderRange {
   id: number;
   name: string;
 }
 
 interface CalenderButtonProps {
-  selectedCalenderRange: SelectedCalenderRange;
-  setSelectedCalenderRange: Dispatch<SetStateAction<SelectedCalenderRange>>;
+  selectedCalenderRange: ISelectedCalenderRange;
+  setSelectedCalenderRange: Dispatch<SetStateAction<ISelectedCalenderRange>>;
 }
 
 export const CalenderButton = ({

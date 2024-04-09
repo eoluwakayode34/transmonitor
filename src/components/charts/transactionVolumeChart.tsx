@@ -7,24 +7,49 @@ import {
   YAxis,
   Area,
   Tooltip,
-  CartesianGrid,
-  ReferenceLine,
 } from "recharts";
 import { format, parseISO, subDays } from "date-fns";
+import { ISelectedCalenderRange } from "../button/button";
 
 interface DataItem {
   date: string;
   value: number;
 }
 
-const generateData = (): DataItem[] => {
+const generateData = (range: string): DataItem[] => {
   const data: DataItem[] = [];
-  for (let num = 30 * 6; num >= 0; num--) {
-    data.push({
-      date: subDays(new Date(), num).toISOString().substr(0, 10),
-      value: 1 + Math.random(),
-    });
+  const currentDate = new Date();
+
+  if (range === "1 Jan - 1 Jun") {
+    for (let month = 0; month < 6; month++) {
+      const startDate = new Date(currentDate.getFullYear(), month, 1);
+      const endDate = new Date(currentDate.getFullYear(), month + 1, 0);
+
+      for (let day = startDate.getDate(); day <= endDate.getDate(); day++) {
+        const date = new Date(currentDate.getFullYear(), month, day);
+        data.push({
+          date: date.toISOString().substr(0, 10),
+          value: 1 + Math.random(),
+        });
+      }
+    }
+  } else if (range === "1 July - 1 Dec") {
+    for (let month = 6; month < 12; month++) {
+      const startDate = new Date(currentDate.getFullYear(), month, 1);
+      const endDate = new Date(currentDate.getFullYear(), month + 1, 0);
+
+      for (let day = startDate.getDate(); day <= endDate.getDate(); day++) {
+        const date = new Date(currentDate.getFullYear(), month, day);
+        data.push({
+          date: date.toISOString().substr(0, 10),
+          value: 1 + Math.random(),
+        });
+      }
+    }
+  } else {
+    throw new Error("Invalid range specified");
   }
+
   return data;
 };
 
@@ -44,8 +69,14 @@ const CustomTooltip: FC<{
   return null;
 };
 
-const TransactionVolumeChart: FC = () => {
-  const data = generateData();
+interface TransactionVolumeChartProps {
+  selectedCalenderRange: ISelectedCalenderRange;
+}
+
+const TransactionVolumeChart: FC<TransactionVolumeChartProps> = ({
+  selectedCalenderRange,
+}) => {
+  const data = generateData(selectedCalenderRange?.name);
 
   const monthStartIndices: number[] = [];
   data.forEach((entry, index) => {

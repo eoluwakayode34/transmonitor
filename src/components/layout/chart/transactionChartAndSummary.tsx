@@ -31,13 +31,13 @@ export default function TransactionChartAndSummary() {
             />
 
             <div className="flex gap-3">
-              <Button type="left" />
-              <Button type="right" />
+              <Button type="left" onClick={() => setSelectedCalenderRange(calenderRangeList[0]) } />
+              <Button type="right" onClick={() => setSelectedCalenderRange(calenderRangeList[1]) }  />
             </div>
           </div>
         </div>
 
-        <TransactionVolumeChart />
+        <TransactionVolumeChart selectedCalenderRange={selectedCalenderRange} />
       </div>
       <div className="col-span-full xl:col-span-1  h-full">
         <OrderSummaryCard title="Orders" orderSummary={orderSummaryData} />
